@@ -4,9 +4,9 @@ pipeline {
  } 
  environment { 
  DOCKERHUB_CREDENTIALS = credentials('rohit1027') 
-   registry = "rohit1027/backend-lms" 
-    registryCredential = 'rohit1027'  
-    dockerImage = '' 
+  registry = "rohit1027/backend-lms" 
+     registryCredential = 'rohit1027'  
+     dockerImage = '' 
  } 
  stages { 
  stage('Building the docker image') { 
@@ -16,7 +16,7 @@ pipeline {
  } 
  stage('Logging into dockerhub account') { 
  steps { 
- sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  docker login -u $DOCKERHUB_CREDENTIALS_USR -- password-stdin' 
+ sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin' 
  } 
  } 
  stage('pushing the docker image into dockerhub')  { 
