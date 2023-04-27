@@ -2,13 +2,8 @@ pipeline {
     agent{
        label 'docker'
     }
-
     environment {
-
-    DOCKERHUB_CREDENTIALS = credentials('rohit1027')
-     registry = "rohit1027/backend-lms"
-        registryCredential = 'rohit1027'
-        dockerImage = ''
+    DOCKERHUB_CREDENTIALS = credentials('rohit1027') registry = "rohit1027/backend-lms" registryCredential = 'rohit1027' dockerImage = ''
     }
 
         stage('Building the docker image') {
