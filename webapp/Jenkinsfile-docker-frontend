@@ -12,7 +12,7 @@ pipeline {
  stages { 
  stage('Building the docker image') { 
  steps { 
- sh 'cd webapp && docker build -t rohit1027/frontend-lms.' 
+ sh 'cd webapp && docker build -t rohit1027/frontend-lms .' 
  } 
  } 
  stage('Logging into dockerhub account') { 
