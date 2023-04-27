@@ -4,9 +4,11 @@ pipeline {
  } 
  environment { 
  DOCKERHUB_CREDENTIALS = credentials('rohit1027') 
-  registry = "rohit1027/frontend-lms" 
-    registryCredential = 'rohit1027' 
+    registry = "rohit1027/frontend-lms" 
+      registryCredential = 'rohit1027'
+      dockerimage=''
  } 
+ 
  stages { 
  stage('Building the docker image') { 
  steps { 
