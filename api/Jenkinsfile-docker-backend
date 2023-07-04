@@ -11,7 +11,7 @@ pipeline {
  stages {
  stage('Building the docker image') {
  steps {
- sh 'cd api && docker build -t rohit1027/backend-lms .'
+ sh 'cd api && docker build -t rohit1027/backend-lms.'
  }
  }
  stage('Logging into dockerhub account') {
