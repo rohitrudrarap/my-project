@@ -6,9 +6,9 @@ pipeline {
 
     environment {
 
-    DOCKERHUB_CREDENTIALS = credentials('dockeruser')
-     registry = "mubeen507/backend-lms"
-        registryCredential = 'dockeruser'
+    DOCKERHUB_CREDENTIALS = credentials('rohit1027')
+     registry = "rohit1027/backend-lms"
+        registryCredential = 'rohit1027'
         dockerImage = ''
     }
 
@@ -17,7 +17,7 @@ pipeline {
         
         stage('Building the docker image') {
             steps {
-                sh 'cd api && docker build -t mubeen507/backend-lms .'
+                sh 'cd api && docker build -t rohit1027/backend-lms .'
             }
         }
         stage('Logging into dockerhub account') {
@@ -27,12 +27,12 @@ pipeline {
         }
         stage('pushing the docker image into dockerhub') {
             steps {
-                  sh 'docker push mubeen507/backend-lms'
+                  sh 'docker push rohit1027/backend-lms'
             }
         }
         stage('Remove old docker images') {
              steps {
-                 sh 'docker rmi -f mubeen507/backend-lms'
+                 sh 'docker rmi -f rohit1027/backend-lms'
             }
         }
          stage('creating database container') {
@@ -44,7 +44,7 @@ pipeline {
          stage('Running the docker container') {
             steps {
                   sh 'docker container rm --force backend'
-                  sh 'docker run -d -p 8080:8080 --network lmsnetwork -e DATABASE_URL=postgresql://postgres:password@lmsdb:5432/postgres --name backend -e PORT=8080 -e MODE=local  mubeen507/backend-lms'
+                  sh 'docker run -d -p 8080:8080 --network lmsnetwork -e DATABASE_URL=postgresql://postgres:password@lmsdb:5432/postgres --name backend -e PORT=8080 -e MODE=local  rohit1027/backend-lms'
             }
         }
     }
